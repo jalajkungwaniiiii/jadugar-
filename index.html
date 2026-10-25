@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,31 +30,28 @@ body {
 
 .star {
   position: absolute;
-  background: white;
   width: 2px;
   height: 2px;
   border-radius: 50%;
+  background: white;
   animation: twinkle 3s infinite alternate;
 }
 
 @keyframes twinkle {
-  from { opacity: 0.2; }
+  from { opacity: .2; }
   to { opacity: 1; }
 }
 
-/* Floating and glowing moon */
 .moon {
   width: 160px;
   height: 160px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 30%,
     #fffef0, #f8e7b4, #c9b27d);
-  box-shadow: 0 0 45px #fff0bd,
-              0 0 110px #d7baff55;
+  box-shadow: 0 0 45px #fff0bd, 0 0 110px #d7baff55;
   margin: 0 auto 35px;
   animation: moonFloat 6s ease-in-out infinite,
              moonGlow 4s ease-in-out infinite alternate;
-  will-change: transform, box-shadow;
 }
 
 @keyframes moonFloat {
@@ -64,12 +60,8 @@ body {
 }
 
 @keyframes moonGlow {
-  from {
-    box-shadow: 0 0 35px #fff0bd, 0 0 75px #d7baff44;
-  }
-  to {
-    box-shadow: 0 0 55px #fff0bd, 0 0 125px #d7baff88;
-  }
+  from { box-shadow: 0 0 35px #fff0bd, 0 0 75px #d7baff44; }
+  to { box-shadow: 0 0 55px #fff0bd, 0 0 125px #d7baff88; }
 }
 
 header {
@@ -101,7 +93,7 @@ h1 {
 h1 span {
   display: block;
   color: #f3c6df;
-  font-size: 0.55em;
+  font-size: .55em;
   font-style: italic;
   margin-top: 15px;
 }
@@ -133,7 +125,7 @@ h2 {
   line-height: 1.3;
 }
 
-h2 em { color: #f3c6df; }
+h2 em, .question em { color: #f3c6df; }
 
 .ornament {
   color: #f7dfa0;
@@ -146,7 +138,7 @@ h2 em { color: #f3c6df; }
   margin: 30px auto;
   padding: 35px;
   border: 1px solid #e8d5a655;
-  border-radius: 100px 100px 20px 20px;
+  border-radius: 60px 60px 20px 20px;
   background: #ffffff09;
   line-height: 2;
 }
@@ -181,7 +173,6 @@ h2 em { color: #f3c6df; }
   display: block;
   color: #cbbaff;
   margin-bottom: 12px;
-  letter-spacing: 2px;
 }
 
 .name-card strong {
@@ -217,8 +208,6 @@ h2 em { color: #f3c6df; }
   color: #fff4dd;
 }
 
-.question em { color: #f3c6df; }
-
 .dance {
   max-width: 680px;
   margin: 35px auto;
@@ -247,47 +236,24 @@ h2 em { color: #f3c6df; }
 }
 
 button {
-  padding: 15px 25px;
+  padding: 16px 27px;
   border-radius: 40px;
   cursor: pointer;
   font-size: 16px;
+  border: 1px solid #f7dfa0;
   position: relative;
   overflow: hidden;
-  isolation: isolate;
-  transition: transform 250ms ease,
-              box-shadow 300ms ease,
-              background-color 300ms ease;
+  transition: transform .3s, box-shadow .3s;
 }
 
 button:hover {
   transform: translateY(-3px);
-}
-
-/* Shimmering button effect */
-button::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -80%;
-  width: 45%;
-  height: 200%;
-  background: linear-gradient(
-    90deg, transparent, #ffffff70, transparent
-  );
-  transform: rotate(22deg);
-  transition: left 650ms ease;
-  pointer-events: none;
-  z-index: -1;
-}
-
-button:hover::after {
-  left: 140%;
+  box-shadow: 0 0 25px #f7dfa066;
 }
 
 .yes {
   background: #f7dfa0;
   color: #211333;
-  border: 1px solid #f7dfa0;
   animation: buttonGlow 2.8s ease-in-out infinite;
 }
 
@@ -296,10 +262,9 @@ button:hover::after {
   50% { box-shadow: 0 0 22px 4px #f7dfa055; }
 }
 
-.think {
-  background: transparent;
-  border: 1px solid #e5d7ff;
-  color: white;
+.surprise-button {
+  padding: 17px 30px;
+  letter-spacing: .3px;
 }
 
 #response {
@@ -307,21 +272,17 @@ button:hover::after {
   max-width: 600px;
   margin: 25px auto;
   padding: 25px;
-  border-radius: 18px;
-  background: #ffffff12;
+  border-radius: 20px;
   line-height: 2;
   font-size: 18px;
+  border: 1px solid #f3c6df88;
+  background: linear-gradient(145deg, #352452dd, #17112ddd);
+  box-shadow: 0 0 35px #f3c6df22;
 }
 
 @keyframes responseAppear {
-  from {
-    opacity: 0;
-    transform: translateY(18px) scale(.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(18px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* Floating hearts */
@@ -341,29 +302,19 @@ button:hover::after {
   font-size: 18px;
   text-shadow: 0 0 12px #f3c6df99;
   animation: heartRise 5.5s ease-in forwards;
-  will-change: transform, opacity;
 }
 
 @keyframes heartRise {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg) scale(.7);
-    opacity: 0;
-  }
+  0% { transform: translateY(0) scale(.7); opacity: 0; }
   12% { opacity: .8; }
   80% { opacity: .65; }
-  100% {
-    transform: translate3d(35px, -105vh, 0)
-               rotate(25deg) scale(1.25);
-    opacity: 0;
-  }
+  100% { transform: translate(35px, -105vh) rotate(25deg) scale(1.25); opacity: 0; }
 }
 
-/* Scroll-reveal animations */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 900ms ease,
-              transform 900ms cubic-bezier(.2,.7,.2,1);
+  transition: opacity 900ms ease, transform 900ms ease;
 }
 
 .reveal.is-visible {
@@ -371,18 +322,13 @@ button:hover::after {
   transform: translateY(0);
 }
 
-/* Cards lift gently when hovered */
 .letter, .question, .dance, .name-card {
-  transition: transform 350ms ease,
-              box-shadow 350ms ease,
-              border-color 350ms ease;
+  transition: transform 350ms ease, box-shadow 350ms ease;
 }
 
-.letter:hover, .question:hover,
-.dance:hover, .name-card:hover {
+.letter:hover, .question:hover, .dance:hover, .name-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 35px #00000028;
-  border-color: #f3c6df99;
 }
 
 footer {
@@ -394,58 +340,281 @@ footer {
   line-height: 2;
 }
 
-@media (max-width: 550px) {
-  .moon {
-    width: 125px;
-    height: 125px;
-  }
-
-  .names { flex-direction: column; }
-
-  .letter, .question {
-    padding: 25px 20px;
-    border-radius: 28px;
-  }
-
-  .letter p, .question p {
-    overflow-wrap: anywhere;
-  }
-
-  section { padding: 55px 18px; }
-
-  button { max-width: 100%; }
+/* Shinchan-inspired character proposing with a ring */
+.shinchan-scene {
+  max-width: 680px;
+  margin: 35px auto 45px;
+  padding: 28px 16px 32px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #e8d5a655;
+  border-radius: 28px;
+  background: radial-gradient(ellipse at 50% 10%,
+    #49345f, #241936 58%, #17112d);
+  box-shadow: 0 0 30px #d7baff18;
 }
 
-/* Respect reduced-motion accessibility settings */
+.shinchan-scene h3 {
+  color: #f3c6df;
+  font-size: clamp(23px, 5vw, 32px);
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.scene-caption {
+  color: #ded5f1;
+  line-height: 1.8;
+  margin-top: 12px;
+}
+
+.shinchan-sky-moon {
+  position: absolute;
+  right: 12%;
+  top: 22px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #fff0bd;
+  box-shadow: 0 0 25px #fff0bd99;
+}
+
+.shinchan-sky-moon::after {
+  content: "";
+  position: absolute;
+  width: 49px;
+  height: 49px;
+  top: -5px;
+  left: 12px;
+  border-radius: 50%;
+  background: #302143;
+}
+
+.shinchan-stars {
+  color: #f7dfa0;
+  letter-spacing: 13px;
+}
+
+.shinchan-stage {
+  position: relative;
+  height: 245px;
+  max-width: 340px;
+  margin: 12px auto 0;
+}
+
+.shinchan-boy {
+  position: absolute;
+  width: 145px;
+  height: 210px;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  animation: shinchanBob 3s ease-in-out infinite;
+}
+
+.shinchan-hair {
+  position: absolute;
+  z-index: 3;
+  top: 12px;
+  left: 23px;
+  width: 96px;
+  height: 54px;
+  background: #17131b;
+  border: 2px solid #211626;
+  border-radius: 48% 48% 23% 23%;
+}
+
+.shinchan-face {
+  position: absolute;
+  z-index: 4;
+  top: 29px;
+  left: 27px;
+  width: 88px;
+  height: 77px;
+  background: #ffca9e;
+  border: 2px solid #34202c;
+  border-radius: 43% 43% 48% 48%;
+}
+
+.shinchan-brow {
+  position: absolute;
+  top: 17px;
+  width: 25px;
+  height: 7px;
+  background: #17131b;
+  border-radius: 5px;
+}
+
+.shinchan-brow.left { left: 10px; transform: rotate(8deg); }
+.shinchan-brow.right { right: 10px; transform: rotate(-8deg); }
+
+.shinchan-eye {
+  position: absolute;
+  top: 29px;
+  width: 7px;
+  height: 10px;
+  background: #201523;
+  border-radius: 50%;
+}
+
+.shinchan-eye.left { left: 22px; }
+.shinchan-eye.right { right: 22px; }
+
+.shinchan-cheek {
+  position: absolute;
+  top: 44px;
+  width: 13px;
+  height: 7px;
+  background: #f48c8d;
+  border-radius: 50%;
+}
+
+.shinchan-cheek.left { left: 4px; }
+.shinchan-cheek.right { right: 4px; }
+
+.shinchan-mouth {
+  position: absolute;
+  bottom: 8px;
+  left: 34px;
+  width: 16px;
+  height: 9px;
+  border-bottom: 3px solid #8c3545;
+  border-radius: 50%;
+}
+
+.shinchan-neck {
+  position: absolute;
+  top: 99px;
+  left: 60px;
+  width: 23px;
+  height: 14px;
+  background: #ffca9e;
+}
+
+.shinchan-shirt {
+  position: absolute;
+  z-index: 2;
+  top: 106px;
+  left: 32px;
+  width: 76px;
+  height: 53px;
+  background: #ed424f;
+  border: 2px solid #34202c;
+  border-radius: 14px 14px 9px 9px;
+  transform: rotate(-7deg);
+}
+
+.shinchan-arm {
+  position: absolute;
+  z-index: 5;
+  top: 111px;
+  left: 82px;
+  width: 48px;
+  height: 13px;
+  background: #ffca9e;
+  border: 2px solid #34202c;
+  border-radius: 12px;
+  transform: rotate(-36deg);
+  transform-origin: left center;
+}
+
+.shinchan-hand-ring {
+  position: absolute;
+  z-index: 6;
+  top: 77px;
+  right: -1px;
+  font-size: 29px;
+  filter: drop-shadow(0 0 8px #ffd66b);
+  animation: ringSparkle 1.5s ease-in-out infinite alternate;
+}
+
+.shinchan-shorts {
+  position: absolute;
+  z-index: 3;
+  top: 151px;
+  left: 36px;
+  width: 67px;
+  height: 28px;
+  background: #ffd84e;
+  border: 2px solid #34202c;
+  border-radius: 4px 4px 13px 13px;
+}
+
+.shinchan-leg {
+  position: absolute;
+  z-index: 2;
+  top: 171px;
+  width: 15px;
+  height: 25px;
+  background: #ffca9e;
+  border: 2px solid #34202c;
+  border-radius: 7px;
+}
+
+.shinchan-leg.bent { left: 78px; transform: rotate(-55deg); }
+.shinchan-leg.back { left: 43px; transform: rotate(8deg); }
+
+.shinchan-shoe {
+  position: absolute;
+  bottom: 7px;
+  left: 25px;
+  width: 35px;
+  height: 13px;
+  background: #ed424f;
+  border: 2px solid #34202c;
+  border-radius: 10px 4px 5px 10px;
+}
+
+.shinchan-heart {
+  position: absolute;
+  font-size: 24px;
+  animation: heartFloat 3s ease-in-out infinite;
+}
+
+.shinchan-heart.one { left: 9%; top: 44%; }
+.shinchan-heart.two { right: 10%; top: 28%; animation-delay: .8s; }
+.shinchan-heart.three { right: 17%; bottom: 8%; animation-delay: 1.4s; }
+
+@keyframes shinchanBob {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -5px; }
+}
+
+@keyframes ringSparkle {
+  from { transform: scale(.9) rotate(-5deg); }
+  to { transform: scale(1.15) rotate(8deg); }
+}
+
+@keyframes heartFloat {
+  0%, 100% { translate: 0 4px; opacity: .65; }
+  50% { translate: 0 -14px; opacity: 1; }
+}
+
+@media (max-width: 550px) {
+  .moon { width: 125px; height: 125px; }
+  .names { flex-direction: column; }
+  .letter, .question { padding: 25px 20px; border-radius: 28px; }
+  .letter p, .question p { overflow-wrap: anywhere; }
+  section { padding: 55px 18px; }
+  button { max-width: 100%; }
+  .shinchan-stage { transform: scale(.94); transform-origin: top center; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation: none !important;
     scroll-behavior: auto !important;
   }
-
-  .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-
-  .letter, .question, .dance, .name-card, button {
-    transition: none !important;
-  }
+  .reveal { opacity: 1 !important; transform: none !important; }
 }
 </style>
 </head>
 
 <body>
-
 <div id="stars"></div>
 
 <header>
   <div class="moon"></div>
-
-  <div class="eyebrow">
-    A little magic beneath the Sharad Purnima moon
-  </div>
+  <div class="eyebrow">A little magic beneath the Sharad Purnima moon</div>
 
   <h1>
     For Lxmi Ji
@@ -475,10 +644,7 @@ footer {
       bhi achha lagne lagta hai.
     </p>
 
-    <p>
-      Log kehte hain jadugar apne magic se sabko surprise
-      kar dete hain…
-    </p>
+    <p>Log kehte hain jadugar apne magic se sabko surprise kar dete…</p>
 
     <p class="highlight">
       "Jadugar toh hum hain, par magic toh aapne hum par hi
@@ -568,6 +734,46 @@ footer {
     </p>
   </div>
 
+  <div class="shinchan-scene">
+    <div class="shinchan-sky-moon"></div>
+    <div class="shinchan-stars">✦ ✧ ⋆ ✦ ✧</div>
+    <h3>A Little Surprise for Chari 💍</h3>
+
+    <div class="shinchan-stage">
+      <div class="shinchan-boy">
+        <div class="shinchan-hair"></div>
+
+        <div class="shinchan-face">
+          <span class="shinchan-brow left"></span>
+          <span class="shinchan-brow right"></span>
+          <span class="shinchan-eye left"></span>
+          <span class="shinchan-eye right"></span>
+          <span class="shinchan-cheek left"></span>
+          <span class="shinchan-cheek right"></span>
+          <span class="shinchan-mouth"></span>
+        </div>
+
+        <div class="shinchan-neck"></div>
+        <div class="shinchan-shirt"></div>
+        <div class="shinchan-arm"></div>
+        <div class="shinchan-hand-ring">💍</div>
+        <div class="shinchan-shorts"></div>
+        <div class="shinchan-leg bent"></div>
+        <div class="shinchan-leg back"></div>
+        <div class="shinchan-shoe"></div>
+      </div>
+
+      <span class="shinchan-heart one">💗</span>
+      <span class="shinchan-heart two">💕</span>
+      <span class="shinchan-heart three">❤️</span>
+    </div>
+
+    <p class="scene-caption">
+      “Chari Ji… a tiny ring, a big question,
+      and a whole lot of moonlight.” 🌙💗
+    </p>
+  </div>
+
   <div class="dance">
     <p style="color:#f7dfa0">✿ ☾ ✿</p>
 
@@ -588,12 +794,8 @@ footer {
   </div>
 
   <div class="buttons">
-    <button class="yes" onclick="showAnswer('yes')">
-      💗 Haan, mere Jadugar!
-    </button>
-
-    <button class="think" onclick="showAnswer('think')">
-      🌙 Mujhe thoda waqt chahiye
+    <button class="yes surprise-button" onclick="showSurprise()">
+      ✨ Open our little moonlight surprise ✨
     </button>
   </div>
 
@@ -615,111 +817,102 @@ footer {
 <script>
 const sky = document.getElementById("stars");
 
-/* Generate twinkling stars */
+/* Create twinkling stars */
 for (let i = 0; i < 115; i++) {
   const star = document.createElement("span");
   star.className = "star";
-
   star.style.left = Math.random() * 100 + "%";
   star.style.top = Math.random() * 100 + "%";
   star.style.animationDelay = Math.random() * 4 + "s";
   star.style.animationDuration = 2 + Math.random() * 3 + "s";
-
   sky.appendChild(star);
 }
 
-/* Show the selected proposal response */
-function showAnswer(choice) {
-  const response = document.getElementById("response");
-
-  response.style.display = "block";
-
-  if (choice === "yes") {
-    response.innerHTML = `
-      🌙💗 <strong>Toh phir, meri Jadugarni Ji…</strong><br>
-      Aaj ki chaandni is moment ki witness rahe.
-      Thank you for giving our little story a chance.
-      Ab ek cute si smile ke saath,
-      hamari first moonlight dance ki date kab rakhein? ✨
-    `;
-  } else {
-    response.innerHTML = `
-      🤍 <strong>Koi jaldi nahi, Lxmi Ji.</strong><br>
-      Aap aaram se sochiye. Your feelings and your time
-      both matter. Aap jo bhi feel karti hain, main uski
-      respect karunga. Hamari friendship mere liye phir bhi
-      special rahegi. 🌙
-    `;
-  }
-
-  response.style.animation = "none";
-  void response.offsetWidth;
-  response.style.animation = "responseAppear 650ms ease both";
-
-  response.scrollIntoView({
-    behavior: "smooth",
-    block: "center"
-  });
-}
-
-/* Scroll-reveal animations */
-const motionReduced = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-).matches;
-
-const revealTargets = document.querySelectorAll(
-  "header .eyebrow, header h1, header .intro, header > a, section, footer"
-);
-
-revealTargets.forEach((element, index) => {
-  element.classList.add("reveal");
-  element.style.transitionDelay = `${(index % 3) * 100}ms`;
-});
-
-if (!motionReduced && "IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  revealTargets.forEach(element => revealObserver.observe(element));
-} else {
-  revealTargets.forEach(element => element.classList.add("is-visible"));
-}
-
-/* Gentle floating hearts */
+/* Floating hearts */
 const heartLayer = document.createElement("div");
 heartLayer.id = "floating-hearts";
 heartLayer.setAttribute("aria-hidden", "true");
 document.body.appendChild(heartLayer);
 
 function createFloatingHeart() {
-  if (motionReduced || document.hidden) return;
-
   const heart = document.createElement("span");
   heart.className = "floating-heart";
   heart.textContent = ["♡", "♥", "✧", "💗"][
     Math.floor(Math.random() * 4)
   ];
-
-  heart.style.left = `${Math.random() * 94 + 3}%`;
-  heart.style.animationDuration = `${4.5 + Math.random() * 2.5}s`;
-  heart.style.fontSize = `${14 + Math.random() * 14}px`;
-
+  heart.style.left = Math.random() * 94 + 3 + "%";
+  heart.style.animationDuration = 4.5 + Math.random() * 2.5 + "s";
+  heart.style.fontSize = 14 + Math.random() * 14 + "px";
   heartLayer.appendChild(heart);
 
-  heart.addEventListener("animationend", () => {
-    heart.remove();
-  }, { once: true });
+  heart.addEventListener("animationend", () => heart.remove(), {
+    once: true
+  });
 }
 
-if (!motionReduced) {
-  window.setInterval(createFloatingHeart, 1800);
+/* The new special surprise button */
+function showSurprise() {
+  const response = document.getElementById("response");
+
+  response.innerHTML = `
+    <div class="surprise-sparkle">✦ ☾ ✦</div>
+
+    <strong>For my Chari, meri Jadugarni Ji 💗</strong>
+    <br><br>
+
+    Agar main chaand se ek wish maang sakta, toh woh koi
+    perfect fairytale nahi hoti — bas itna ki aap hamesha
+    apni smile ke saath khush rahein. 🌙
+    <br><br>
+
+    Aur agar kabhi aapka dil bhi kahe, toh ek din hum
+    “Ordinary” ke saath chaandni mein dance karenge,
+    aur us pal ko apni favourite memory bana lenge. ✨
+    <br><br>
+
+    <em>No pressure, no hurry — bas ek honest feeling,
+    aapke liye, from your Jadugar.</em> 💌
+  `;
+
+  response.style.display = "block";
+  response.style.animation = "responseAppear 650ms ease both";
+  response.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+  for (let i = 0; i < 7; i++) {
+    setTimeout(createFloatingHeart, i * 180);
+  }
 }
+
+/* Scroll reveal */
+const revealTargets = document.querySelectorAll(
+  "header .eyebrow, header h1, header .intro, header > a, section, footer"
+);
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealTargets.forEach(element => {
+    element.classList.add("reveal");
+    observer.observe(element);
+  });
+} else {
+  revealTargets.forEach(element => element.classList.add("is-visible"));
+}
+
+/* Keep hearts floating gently */
+setInterval(() => {
+  if (!document.hidden) createFloatingHeart();
+}, 2200);
 </script>
 
 </body>
