@@ -1,0 +1,726 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Lxmi Ji 🌙</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: linear-gradient(180deg, #100d2a, #21163e, #090817);
+  color: #fff7e8;
+  font-family: Georgia, serif;
+  overflow-x: hidden;
+}
+
+#stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.2; }
+  to { opacity: 1; }
+}
+
+/* Floating and glowing moon */
+.moon {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%,
+    #fffef0, #f8e7b4, #c9b27d);
+  box-shadow: 0 0 45px #fff0bd,
+              0 0 110px #d7baff55;
+  margin: 0 auto 35px;
+  animation: moonFloat 6s ease-in-out infinite,
+             moonGlow 4s ease-in-out infinite alternate;
+  will-change: transform, box-shadow;
+}
+
+@keyframes moonFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes moonGlow {
+  from {
+    box-shadow: 0 0 35px #fff0bd, 0 0 75px #d7baff44;
+  }
+  to {
+    box-shadow: 0 0 55px #fff0bd, 0 0 125px #d7baff88;
+  }
+}
+
+header {
+  min-height: 100vh;
+  padding: 65px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  color: #f7dfa0;
+  font: 11px Arial, sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 2;
+}
+
+h1 {
+  font-size: clamp(45px, 9vw, 85px);
+  font-weight: normal;
+  margin: 20px 0;
+  color: #fff5dc;
+}
+
+h1 span {
+  display: block;
+  color: #f3c6df;
+  font-size: 0.55em;
+  font-style: italic;
+  margin-top: 15px;
+}
+
+.intro {
+  max-width: 600px;
+  margin: 20px auto;
+  line-height: 2;
+  color: #ded5f1;
+  font-size: 18px;
+}
+
+a {
+  color: #f7dfa0;
+  text-decoration: none;
+}
+
+section {
+  position: relative;
+  z-index: 1;
+  padding: 75px 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: clamp(30px, 6vw, 48px);
+  font-weight: normal;
+  margin-bottom: 25px;
+  line-height: 1.3;
+}
+
+h2 em { color: #f3c6df; }
+
+.ornament {
+  color: #f7dfa0;
+  margin-bottom: 25px;
+  letter-spacing: 8px;
+}
+
+.letter {
+  max-width: 720px;
+  margin: 30px auto;
+  padding: 35px;
+  border: 1px solid #e8d5a655;
+  border-radius: 100px 100px 20px 20px;
+  background: #ffffff09;
+  line-height: 2;
+}
+
+.letter p {
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.highlight {
+  color: #f7dfa0;
+  font-style: italic;
+  font-size: 21px;
+}
+
+.names {
+  display: flex;
+  gap: 20px;
+  max-width: 650px;
+  margin: 35px auto;
+}
+
+.name-card {
+  flex: 1;
+  padding: 28px 15px;
+  border: 1px solid #d8c8ff55;
+  border-radius: 18px;
+  background: #ffffff09;
+}
+
+.name-card small {
+  display: block;
+  color: #cbbaff;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+.name-card strong {
+  display: block;
+  font-size: 32px;
+  color: #f3c6df;
+  font-weight: normal;
+}
+
+.name-card p {
+  margin-top: 15px;
+  line-height: 1.8;
+  color: #ded5f1;
+}
+
+.question {
+  max-width: 750px;
+  margin: 25px auto;
+  padding: 35px;
+  border-radius: 25px;
+  border: 1px solid #f5dca855;
+  background: linear-gradient(140deg, #352452aa, #15102e);
+}
+
+.question p {
+  line-height: 2;
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.question .big {
+  font-size: clamp(25px, 5vw, 38px);
+  color: #fff4dd;
+}
+
+.question em { color: #f3c6df; }
+
+.dance {
+  max-width: 680px;
+  margin: 35px auto;
+  padding: 30px 15px;
+  border-top: 1px solid #e8d5a655;
+  border-bottom: 1px solid #e8d5a655;
+}
+
+.dance p {
+  margin: 15px 0;
+  line-height: 1.9;
+}
+
+.dance .dance-title {
+  font-size: clamp(25px, 4vw, 35px);
+  font-style: italic;
+  color: #f3c6df;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 30px auto;
+}
+
+button {
+  padding: 15px 25px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 250ms ease,
+              box-shadow 300ms ease,
+              background-color 300ms ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+}
+
+/* Shimmering button effect */
+button::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -80%;
+  width: 45%;
+  height: 200%;
+  background: linear-gradient(
+    90deg, transparent, #ffffff70, transparent
+  );
+  transform: rotate(22deg);
+  transition: left 650ms ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+button:hover::after {
+  left: 140%;
+}
+
+.yes {
+  background: #f7dfa0;
+  color: #211333;
+  border: 1px solid #f7dfa0;
+  animation: buttonGlow 2.8s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+  0%, 100% { box-shadow: 0 0 0 0 #f7dfa033; }
+  50% { box-shadow: 0 0 22px 4px #f7dfa055; }
+}
+
+.think {
+  background: transparent;
+  border: 1px solid #e5d7ff;
+  color: white;
+}
+
+#response {
+  display: none;
+  max-width: 600px;
+  margin: 25px auto;
+  padding: 25px;
+  border-radius: 18px;
+  background: #ffffff12;
+  line-height: 2;
+  font-size: 18px;
+}
+
+@keyframes responseAppear {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Floating hearts */
+#floating-hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -35px;
+  color: #f3c6df;
+  opacity: 0;
+  font-size: 18px;
+  text-shadow: 0 0 12px #f3c6df99;
+  animation: heartRise 5.5s ease-in forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes heartRise {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(.7);
+    opacity: 0;
+  }
+  12% { opacity: .8; }
+  80% { opacity: .65; }
+  100% {
+    transform: translate3d(35px, -105vh, 0)
+               rotate(25deg) scale(1.25);
+    opacity: 0;
+  }
+}
+
+/* Scroll-reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 900ms ease,
+              transform 900ms cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cards lift gently when hovered */
+.letter, .question, .dance, .name-card {
+  transition: transform 350ms ease,
+              box-shadow 350ms ease,
+              border-color 350ms ease;
+}
+
+.letter:hover, .question:hover,
+.dance:hover, .name-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px #00000028;
+  border-color: #f3c6df99;
+}
+
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 55px 20px;
+  color: #cbbaff;
+  line-height: 2;
+}
+
+@media (max-width: 550px) {
+  .moon {
+    width: 125px;
+    height: 125px;
+  }
+
+  .names { flex-direction: column; }
+
+  .letter, .question {
+    padding: 25px 20px;
+    border-radius: 28px;
+  }
+
+  .letter p, .question p {
+    overflow-wrap: anywhere;
+  }
+
+  section { padding: 55px 18px; }
+
+  button { max-width: 100%; }
+}
+
+/* Respect reduced-motion accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .letter, .question, .dance, .name-card, button {
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+<header>
+  <div class="moon"></div>
+
+  <div class="eyebrow">
+    A little magic beneath the Sharad Purnima moon
+  </div>
+
+  <h1>
+    For Lxmi Ji
+    <span>From Your Jadugar ✨</span>
+  </h1>
+
+  <p class="intro">
+    Kuch baatein face-to-face kehna thoda difficult hota hai,
+    so I thought aaj chaandni ke neeche apne dil ki baat
+    aap tak pahunchayi jaaye. 🌙💗
+  </p>
+
+  <a href="#letter">THERE'S SOMETHING FOR YOU ↓</a>
+</header>
+
+<section id="letter">
+  <div class="ornament">✦ ✧ ✦</div>
+  <h2>Ek jaadu si <em>kahaani…</em></h2>
+
+  <div class="letter">
+    <p>Lxmi Ji, 💗</p>
+
+    <p>
+      Pata nahi kab, kaise aur kis moment par aap meri life ka
+      itna special part ban gayi. Aapke saath normal si baatein
+      bhi special memories ban jaati hain, aur boring sa day
+      bhi achha lagne lagta hai.
+    </p>
+
+    <p>
+      Log kehte hain jadugar apne magic se sabko surprise
+      kar dete hain…
+    </p>
+
+    <p class="highlight">
+      "Jadugar toh hum hain, par magic toh aapne hum par hi
+      kar diya. Ab dil ki har little story mein bas aapka
+      hi mention hota hai."
+    </p>
+
+    <p>
+      Aur agar aaj chaand ko zameen par aane ka chance milta,
+      toh shayad woh bhi aapki smile dekh kar apni moonlight
+      bhool jaata. 🌙
+    </p>
+
+    <p>
+      Yeh koi movie wala promise nahi hai, bas dil se kahi hui
+      ek simple si baat hai — you are special to me, aur main
+      chahta hoon ki aapko yeh pata ho. 💗
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="ornament">☾ ✧ ☽</div>
+  <h2>Do naam, <em>ek pyaari si duniya</em></h2>
+
+  <p>
+    Hamari story mein kuch names sirf nicknames nahi hain…
+    unke saath so many memories, jokes aur feelings judi hui hain.
+  </p>
+
+  <div class="names">
+    <div class="name-card">
+      <small>When you're my</small>
+      <strong>Ghost 👻</strong>
+      <p>
+        Thodi si masti, thoda sa pagalpan, aur aapki woh vibe
+        jo normal moments ko bhi memorable bana deti hai.
+      </p>
+    </div>
+
+    <div class="name-card">
+      <small>And sometimes, my</small>
+      <strong>Chari ✨</strong>
+      <p>
+        Ek cute sa naam, jo sunte hi face par automatically
+        smile aa jaati hai.
+      </p>
+    </div>
+  </div>
+
+  <p>
+    Ghost ho ya Chari, ek baat toh same hai —
+    aapki place in my life is special, Lxmi Ji. 🌷
+  </p>
+</section>
+
+<section>
+  <div class="ornament">✧ ✦ ✧</div>
+  <h2>Toh, meri <em>Jadugarni Ji…</em></h2>
+
+  <div class="question">
+    <p class="big">
+      "Kya aap is jadugar ki
+      <em>jadugarni</em> banna pasand karengi?"
+    </p>
+
+    <p>
+      Jadugar toh hum hain, par apne hi magic mein hum khud
+      kho gaye… kyunki is baar jaadu kisi spell se nahi,
+      aapki baaton, aapki smile aur aapke hone se hua hai.
+    </p>
+
+    <p class="big">
+      Kya aaj Sharad Purnima ke is beautiful moonlit night par,
+      aap is jadugar ka <em>saathi</em> banna pasand karengi?
+    </p>
+
+    <p>
+      Waise toh humein lagta hai ki humein aapka answer pata hai…
+      but kya pata, is jadugar ka udhta hua teer aaj seedha
+      Jadugarni Ji ke dil tak pahunch hi jaaye! 🏹💗
+    </p>
+
+    <p>
+      Bas ek baat yaad rakhiyega — your answer matters to me,
+      aur aapki happiness will always be important to me.
+    </p>
+  </div>
+
+  <div class="dance">
+    <p style="color:#f7dfa0">✿ ☾ ✿</p>
+
+    <p class="dance-title">
+      "Would you like to dance with me to Ordinary,
+      under this beautiful moonlight?"
+    </p>
+
+    <p>
+      Imagine kijiye… ek peaceful moonlit night, stars above us,
+      Ordinary playing softly in the background, aur bas ek
+      beautiful moment jise hum hamesha yaad rakh sakein.
+    </p>
+
+    <p>
+      Toh, meri Jadugarni Ji… will you give me this one dance? 🌙✨
+    </p>
+  </div>
+
+  <div class="buttons">
+    <button class="yes" onclick="showAnswer('yes')">
+      💗 Haan, mere Jadugar!
+    </button>
+
+    <button class="think" onclick="showAnswer('think')">
+      🌙 Mujhe thoda waqt chahiye
+    </button>
+  </div>
+
+  <div id="response" role="status" aria-live="polite"></div>
+</section>
+
+<footer>
+  <p style="font-size:30px;color:#f3c6df">♡</p>
+
+  <p>
+    Chaand badalta rahega, nights aati-jaati rahengi…<br>
+    but I hope aaj ki yeh little story hum dono ke liye
+    ek beautiful memory ban jaaye.
+  </p>
+
+  <div class="eyebrow">With warmth, from your Jadugar ✦</div>
+</footer>
+
+<script>
+const sky = document.getElementById("stars");
+
+/* Generate twinkling stars */
+for (let i = 0; i < 115; i++) {
+  const star = document.createElement("span");
+  star.className = "star";
+
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
+  star.style.animationDelay = Math.random() * 4 + "s";
+  star.style.animationDuration = 2 + Math.random() * 3 + "s";
+
+  sky.appendChild(star);
+}
+
+/* Show the selected proposal response */
+function showAnswer(choice) {
+  const response = document.getElementById("response");
+
+  response.style.display = "block";
+
+  if (choice === "yes") {
+    response.innerHTML = `
+      🌙💗 <strong>Toh phir, meri Jadugarni Ji…</strong><br>
+      Aaj ki chaandni is moment ki witness rahe.
+      Thank you for giving our little story a chance.
+      Ab ek cute si smile ke saath,
+      hamari first moonlight dance ki date kab rakhein? ✨
+    `;
+  } else {
+    response.innerHTML = `
+      🤍 <strong>Koi jaldi nahi, Lxmi Ji.</strong><br>
+      Aap aaram se sochiye. Your feelings and your time
+      both matter. Aap jo bhi feel karti hain, main uski
+      respect karunga. Hamari friendship mere liye phir bhi
+      special rahegi. 🌙
+    `;
+  }
+
+  response.style.animation = "none";
+  void response.offsetWidth;
+  response.style.animation = "responseAppear 650ms ease both";
+
+  response.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+
+/* Scroll-reveal animations */
+const motionReduced = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+
+const revealTargets = document.querySelectorAll(
+  "header .eyebrow, header h1, header .intro, header > a, section, footer"
+);
+
+revealTargets.forEach((element, index) => {
+  element.classList.add("reveal");
+  element.style.transitionDelay = `${(index % 3) * 100}ms`;
+});
+
+if (!motionReduced && "IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealTargets.forEach(element => revealObserver.observe(element));
+} else {
+  revealTargets.forEach(element => element.classList.add("is-visible"));
+}
+
+/* Gentle floating hearts */
+const heartLayer = document.createElement("div");
+heartLayer.id = "floating-hearts";
+heartLayer.setAttribute("aria-hidden", "true");
+document.body.appendChild(heartLayer);
+
+function createFloatingHeart() {
+  if (motionReduced || document.hidden) return;
+
+  const heart = document.createElement("span");
+  heart.className = "floating-heart";
+  heart.textContent = ["♡", "♥", "✧", "💗"][
+    Math.floor(Math.random() * 4)
+  ];
+
+  heart.style.left = `${Math.random() * 94 + 3}%`;
+  heart.style.animationDuration = `${4.5 + Math.random() * 2.5}s`;
+  heart.style.fontSize = `${14 + Math.random() * 14}px`;
+
+  heartLayer.appendChild(heart);
+
+  heart.addEventListener("animationend", () => {
+    heart.remove();
+  }, { once: true });
+}
+
+if (!motionReduced) {
+  window.setInterval(createFloatingHeart, 1800);
+}
+</script>
+
+</body>
+</html>
